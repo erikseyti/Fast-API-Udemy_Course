@@ -49,6 +49,11 @@ async def update_book(book_name: str, book_title: str, book_author: str):
   return book_information
 
 
+@app.delete('/{book_name}')
+async def delete_book(book_name):
+  del BOOKS[book_name]
+  return f'Book {book_name} deleted.'
+
 # @app.get('/directions/{direction_name}')
 # async def get_direction(direction_name: DirectionName):
 #   if direction_name == DirectionName.north:
