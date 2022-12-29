@@ -22,6 +22,10 @@ class DirectionName(str, Enum):
 async def read_all_books():
   return BOOKS
 
+@app.get("/{book_name}")
+async def read_book(book_name: str):
+  return BOOKS[book_name]
+
 # @app.get('/directions/{direction_name}')
 # async def get_direction(direction_name: DirectionName):
 #   if direction_name == DirectionName.north:
