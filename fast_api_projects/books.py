@@ -31,6 +31,10 @@ async def read_all_books(skip_book: Optional[str] = None):
 async def read_book(book_name: str):
   return BOOKS[book_name]
 
+@app.get("/read/")
+async def read_book(book_name: str='book_1'):
+  return BOOKS[book_name]
+
 @app.post('/')
 async def create_book(book_title, book_author):
   current_book_id = 0
@@ -51,6 +55,11 @@ async def update_book(book_name: str, book_title: str, book_author: str):
 
 @app.delete('/{book_name}')
 async def delete_book(book_name):
+  del BOOKS[book_name]
+  return f'Book {book_name} deleted.'
+
+@app.delete('/delete/')
+async def delete_book_query(book_name: str):
   del BOOKS[book_name]
   return f'Book {book_name} deleted.'
 
