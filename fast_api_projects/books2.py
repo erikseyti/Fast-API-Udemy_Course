@@ -55,8 +55,18 @@ def raise_item_cannot_be_found_exception():
 
 
 @app.post('/books/login')
-async def book_login(username: str = Form(), password: str = Form()):
-  return {'username': username, 'password': password}
+async def book_login( title: str, username: str = Header(), password: str = Header()):
+  if username == 'FastAPIUser' and password == 'test1234!':
+      print(BOOKS)
+      for x in BOOKS:
+        if x.title == title:
+          print(x)
+          return x
+  else:
+    return 'Invalid User'
+
+
+
 
 
 @app.get('/header')
