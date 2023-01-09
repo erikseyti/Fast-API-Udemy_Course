@@ -21,7 +21,11 @@ class CreateUser(BaseModel):
   last_name: str
   password: str
 
-router = APIRouter()
+router = APIRouter(
+  prefix='/auth',
+  tags=['auth'],
+  responses={401: {'user':'Not authorized'}}
+)
 
 def get_db():
   try:
