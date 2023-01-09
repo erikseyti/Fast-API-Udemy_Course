@@ -1,3 +1,7 @@
+import sys
+sys.path.append("..")
+
+
 from sqlalchemy import Boolean, Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from database import Base
