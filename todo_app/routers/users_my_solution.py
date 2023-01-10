@@ -7,8 +7,8 @@ from sqlalchemy.orm import Session
 from todo_app.routers.todos import sucessful_response
 
 router = APIRouter(
-  prefix='/users',
-  tags=['users'],
+  prefix='/users_personal',
+  tags=['users_personal'],
   responses={404: {'user':'User Not Found'}}
 )
 
